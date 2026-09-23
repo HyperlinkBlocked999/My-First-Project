@@ -1,2 +1,2 @@
 # My-First-Project
-HTML, CSS, PHP, SQL
+Let's make some changes to this file. It is rather exciting to see this working in action!
