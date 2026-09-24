@@ -2,24 +2,49 @@
 
 include "db.php";
 
-$sql = "SELECT * FROM games";
+$sql = "SELECT * FROM phones";
 
 $result = $pdo->query($sql);
 
 ?>
 
-<h1> Here are all the games: </h1>
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php include "nav.php"; ?>
+
+<h1>View Records</h1>
 
 <?php
 
-foreach ($result as $game) {
-    echo $game["Game_Title"];
-    echo "-";
-    echo $game["Genre"];
-    echo "-";
-    echo $game["Rating"] ."/10";
+foreach ($result as $record) {
+    
+    echo "ID: ";
+    echo $record["id"];
+    echo " -- ";
+
+    echo $record["brand"];
+    echo " -- ";
+
+    echo $record["model"];
+    echo " -- ";
+
+    echo $record["storage_gb"] ."GB";
+    echo " -- ";
+
+    echo "£";
+    echo $record["price"];
     echo "<br>";
 
+    echo '<a href="update_phones.php?id=' . $record["id"]. '"> Edit</a>';
+
+    echo " / ";
+
+    echo '<a href="delete_phones.php?id=' . $record["id"]. '"> Delete</a>';
+
+    echo "<hr>";
+    
 }
 
 ?>
