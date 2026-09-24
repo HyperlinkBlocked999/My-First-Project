@@ -1,41 +1,64 @@
-<!DOCTYPE html>
-<html>
-
-<body>
-
-<h1> Delete a Game </h1>
-
-<form method="POST">
-
-    Game ID:
-    <input type="INT" name="ID">
-
-    <br></br>
-
-    <button type=""> Delete Game</button>
-
-    <br></br>
-
-</form>
-
-</body>
-
-</html>
-
 <?php
 
 include "db.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST["ID"];
+if (isset($_GET["id"])) {
 
-    $sql = "DELETE
-            FROM games
-            WHERE ID = ?";
-    
+    $id = $_GET["id"];
+
+    $sql = "SELECT * FROM phones
+            WHERE id = ?";
+
     $result = $pdo->prepare($sql);
 
     $result->execute([$id]);
 
-    echo "Game has been removed from the database.";
+    $record = $result->fetch();
+
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $id = $_POST["id"];
+
+    $sql = "DELETE FROM phones
+            WHERE id = ?";
+
+    $result = $pdo->prepare($sql);
+
+    $result->execute([$id]);
+
+     echo "<br>";
+     echo "Phone Has been Deleted"; 
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php include "nav.php"; ?>
+
+<h1>Delete Record</h1>
+
+<p>Are you sure you want to delete?</p>
+
+<?php 
+echo $record["brand"];
+echo "<br>";
+echo $record["model"];
+?>
+
+<form method="POST">
+
+    <input type="hidden" name="id" value="<?php echo $record["id"]; ?>">
+
+    <br><br>
+
+    <button type="submit">Delete Phone</button>
+
+</form>
+
+</body>
+</html>
+
