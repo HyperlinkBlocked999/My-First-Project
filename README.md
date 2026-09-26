@@ -1,2 +1,3 @@
 # My-First-Project
-Let's make some changes to this file. It is rather exciting to see this working in action!
+Project I started in school. The program is currently good, but I want to polish it further until it is in satisfactory state.
+
