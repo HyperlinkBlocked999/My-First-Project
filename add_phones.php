@@ -56,4 +56,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "<br>";
     echo "Phone Has been Added"; 
+    echo "Test Has been Added";
 }
