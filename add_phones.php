@@ -55,5 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result->execute([$brand, $model, $storage, $price]);
 
     echo "<br>";
+    echo "balls";
     echo "Phone Has been Added"; 
 }
