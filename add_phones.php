@@ -55,6 +55,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result->execute([$brand, $model, $storage, $price]);
 
     echo "<br>";
-    echo "Phone Has been Added"; 
     echo "Test Has been Added";
 }
